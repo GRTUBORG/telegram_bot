@@ -1,7 +1,11 @@
 import telebot
+import os
+
 from covid import Covid
 
-bot = telebot.TeleBot("1483059988:AAFQaZeheQXtBWSVnn4OY2hh6BoxfqBE3ek")
+
+token = os.environ.get('bot_token')
+bot = telebot.TeleBot(str(token))
 print('Бот работает!')
 
 @bot.message_handler(commands=['start', 'help'])
