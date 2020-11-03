@@ -13,7 +13,7 @@ def send_welcome(message):
 
 @bot.message_handler(func=lambda m: True)
 def echo_message(message):
-    if message.text == '/covid' or '/cov':
+    if message.text == '/covid':
         bot.send_message(message.from_user.id, "Пожалуйста, подождите, собираю статистику для России...")
         covid = Covid(source = "worldometers")
         country_cases = covid.get_status_by_country_name('Russia')['new_cases']
@@ -23,5 +23,7 @@ def echo_message(message):
                          f'Всего случаев для России: {confirmed_country_cases}\n'
                          f'Зафиксировано смертей: {deaths_country_cases}')
         bot.send_message(message.from_user.id, covid_message)
+    else:
+        bot.send_message(message.from_user.id, "Я пока что не знаю, что мне на это ответить. Пожалуйста, пропиши команду /covid")
 
 bot.polling(none_stop = True)
