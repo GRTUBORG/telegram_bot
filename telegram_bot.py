@@ -24,4 +24,4 @@ def echo_message(message):
                          f'Зафиксировано смертей: {deaths_country_cases}')
         bot.send_message(message.from_user.id, covid_message)
 
-bot.polling(none_stop=True)
+bot.polling(none_stop = True)
