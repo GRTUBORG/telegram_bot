@@ -1,8 +1,6 @@
 import telebot
 import os
-
 from covid import Covid
-
 
 token = os.environ.get('bot_token')
 bot = telebot.TeleBot(str(token))
