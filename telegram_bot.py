@@ -14,6 +14,8 @@ def echo_message(message):
     if str(message.text)[:6] == '/covid':
         country = str(message.text)[7:]
         country = str(country)
+        if country == "":
+            country = 'russia'
         bot.send_message(message.from_user.id, "Пожалуйста, подождите, собираю статистику...")
         covid = Covid(source = "worldometers")
         country_cases = covid.get_status_by_country_name(country)['new_cases']
